@@ -991,6 +991,90 @@ body.light-mode footer{
 
 }
 /* =========================
+CONTACT FORM IMPROVEMENTS
+========================= */
+
+.contact-form{
+
+  max-width:700px;
+  margin:auto;
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+
+  opacity:0;
+  transform:translateY(80px);
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+  padding:18px;
+
+  border:none;
+  outline:none;
+
+  border-radius:15px;
+
+  background:rgba(255,255,255,0.05);
+
+  color:white;
+
+  font-size:16px;
+
+  transition:0.4s;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+  border:1px solid #38bdf8;
+
+  box-shadow:
+  0 0 15px rgba(56,189,248,0.4);
+
+}
+
+.contact-form button{
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:30px;
+
+  background:#38bdf8;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-size:16px;
+  font-weight:600;
+
+  transition:0.4s;
+
+}
+
+.contact-form button:hover{
+
+  transform:translateY(-5px);
+
+  box-shadow:
+  0 10px 25px rgba(56,189,248,0.5);
+
+}
+
+.contact-form button:disabled{
+
+  opacity:0.7;
+  cursor:not-allowed;
+
+}
+/* =========================
 FOOTER
 ========================= */
 
@@ -1130,7 +1214,7 @@ UNDER HERO BUTTONS
 <div class="hero-image">
 
   <div class="image-wrapper">
-    <img src="afzal.jpeg" alt="Afzal">
+    <img src="images/afzal.jpeg" alt="Afzal">
   </div>
 
 </div>
@@ -1486,7 +1570,7 @@ ADD THIS AFTER SERVICES SECTION
 
 <div class="project-card">
 
-<img src="ecom.png">
+<img src="images/ecom.png">
 
 <h3>E-Commerce Website</h3>
 
@@ -1504,7 +1588,7 @@ View Project
 
 <div class="project-card">
 
-<img src="event.png">
+<img src="images/event.png">
 
 <h3>Event Website</h3>
 
@@ -1522,7 +1606,7 @@ View Project
 
 <div class="project-card">
 
-<img src="portfolio.png">
+<img src="images/portfolio.png">
 
 <h3>Portfolio Website</h3>
 
@@ -1544,55 +1628,72 @@ View Project
 
 <!-- CONTACT -->
 
+<!-- CONTACT -->
+
 <section class="section" id="contact">
 
-<div class="section-title">
+  <div class="section-title">
 
-<h2>Contact Me</h2>
+    <h2>Contact Me</h2>
 
-<span></span>
+    <span></span>
 
-</div>
+  </div>
 
-<form class="contact-form"
-action="https://formsubmit.co/mohammedafzal1423@gmail.com"
-method="POST">
+  <form class="contact-form"
+  action="https://formsubmit.co/mohammedafzal1423@gmail.com"
+  method="POST">
 
-  <input type="hidden" name="_captcha" value="false">
+    <!-- SETTINGS -->
 
-  <input type="hidden" name="_subject"
-  value="New Portfolio Contact Message">
+    <input type="hidden" name="_captcha" value="false">
 
-  <input type="hidden" name="_autoresponse"
-  value="Thank you for contacting me. I will respond soon.">
+    <input type="hidden" name="_subject"
+    value="New Portfolio Contact Message">
 
-  <input type="text" name="_honey"
-  style="display:none">
+    <input type="hidden" name="_autoresponse"
+    value="Thank you for contacting me. I will respond soon.">
 
-  <input type="text"
-  name="name"
-  placeholder="Your Name"
-  required>
+    <!-- REDIRECT -->
 
-  <input type="email"
-  name="email"
-  placeholder="Your Email"
-  required>
+    <input type="hidden" name="_next"
+    value="https://afzao.netlify.app">
 
-  <textarea
-  name="message"
-  rows="6"
-  placeholder="Your Message"
-  required></textarea>
+    <!-- ANTI SPAM -->
 
-  <button type="submit">
-    Send Message
-  </button>
+    <input type="text"
+    name="_honey"
+    style="display:none">
 
-</form>
+    <!-- INPUTS -->
+
+    <input type="text"
+    name="name"
+    placeholder="Your Name"
+    required>
+
+    <input type="email"
+    name="email"
+    placeholder="Your Email"
+    required>
+
+    <textarea
+    name="message"
+    rows="6"
+    placeholder="Your Message"
+    required></textarea>
+
+    <button type="submit" id="submitBtn">
+
+      <span id="btnText">
+        Send Message
+      </span>
+
+    </button>
+
+  </form>
 
 </section>
-
 <footer>
 
 <p>
@@ -1865,6 +1966,25 @@ themeToggle.addEventListener("click",()=>{
     themeIcon.classList.add("fa-moon");
 
   }
+
+});
+/* CONTACT BUTTON LOADING */
+
+const form =
+document.querySelector(".contact-form");
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const btnText =
+document.getElementById("btnText");
+
+form.addEventListener("submit",()=>{
+
+  btnText.innerHTML =
+  "Sending...";
+
+  submitBtn.disabled = true;
 
 });
 </script>
