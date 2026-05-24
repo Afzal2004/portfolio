@@ -1,255 +1,1874 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Mohammed Afzal | Portfolio</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- GOOGLE FONT -->
 
-  <!-- Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- GSAP -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- TYPED JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- PARTICLES -->
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<style>
+
+/* =========================
+GLOBAL
+========================= */
+
+*{
+
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+body{
+
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+
+}
+
+/* =========================
+PARTICLES
+========================= */
+
+#particles-js{
+
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-2;
+
+}
+
+/* =========================
+SCROLL BAR
+========================= */
+
+.scroll-progress{
+
+  position:fixed;
+  top:0;
+  left:0;
+  width:0%;
+  height:4px;
+
+  background:linear-gradient(to right,#38bdf8,#0ea5e9);
+
+  z-index:999999;
+
+}
+
+/* =========================
+MOUSE GLOW
+========================= */
+
+.mouse-glow{
+
+  position:fixed;
+
+  width:400px;
+  height:400px;
+
+  background:radial-gradient(circle,
+  rgba(56,189,248,0.18) 0%,
+  transparent 70%);
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+  z-index:-1;
+
+  filter:blur(40px);
+
+}
+
+/* =========================
+CUSTOM CURSOR
+========================= */
+
+.custom-cursor{
+
+  position:fixed;
+
+  width:18px;
+  height:18px;
+
+  background:#38bdf8;
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+  z-index:99999;
+
+  transform:translate(-50%,-50%);
+
+  box-shadow:
+  0 0 20px #38bdf8,
+  0 0 60px #38bdf8;
+
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+header{
+
+  width:100%;
+  position:fixed;
+  top:0;
+  z-index:999;
+
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+
+}
+
+.navbar{
+
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px;
+
+}
+
+.logo{
+
+  font-size:30px;
+  font-weight:700;
+
+}
+
+.logo span{
+
+  color:#38bdf8;
+
+}
+
+.nav-links{
+
+  display:flex;
+  gap:30px;
+  list-style:none;
+
+}
+
+.nav-links a{
+
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+
+  color:#38bdf8;
+
+}
+
+.btn{
+
+  padding:12px 24px;
+
+  background:#38bdf8;
+  color:white;
+
+  border-radius:30px;
+
+  text-decoration:none;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+  min-height:100vh;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  max-width:1200px;
+  margin:auto;
+
+  padding:120px 20px;
+
+}
+
+.hero-text{
+
+  max-width:600px;
+
+}
+
+.hero-text h1{
+
+  font-size:70px;
+
+}
+
+.hero-text h2{
+
+  margin:20px 0;
+
+}
+
+.typing{
+
+  color:#38bdf8;
+
+}
+
+.hero-text p{
+
+  color:#cbd5e1;
+  line-height:1.8;
+
+}
+
+.hero-buttons{
+
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+  padding:14px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+
+}
+
+.primary-btn{
+
+  background:#38bdf8;
+  color:white;
+
+}
+
+.secondary-btn{
+
+  border:1px solid #38bdf8;
+  color:#38bdf8;
+
+}
+
+.hero-image img{
+
+  width:380px;
+  border-radius:30px;
+
+  box-shadow:
+  0 0 40px rgba(56,189,248,0.5);
+
+}
+
+/* =========================
+SECTION
+========================= */
+
+.section{
+
+  padding:100px 20px;
+
+  max-width:1200px;
+  margin:auto;
+
+}
+
+.section-title{
+
+  text-align:center;
+  margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+  font-size:42px;
+
+}
+
+.section-title span{
+
+  width:100px;
+  height:4px;
+
+  background:#38bdf8;
+
+  display:block;
+  margin:10px auto;
+
+}
+
+/* =========================
+CARDS
+========================= */
+
+.about-content,
+.project-container,
+.services-container{
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+
+}
+
+.about-card,
+.project-card,
+.service-card{
+
+  background:rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  padding:30px;
+
+  border-radius:25px;
+
+  transition:0.4s;
+
+  opacity:0;
+  transform:translateY(80px);
+
+}
+
+.about-card:hover,
+.project-card:hover,
+.service-card:hover{
+
+  transform:translateY(-10px);
+  border-color:#38bdf8;
+
+}
+
+.about-card i,
+.service-card i{
+
+  font-size:40px;
+  color:#38bdf8;
+  margin-bottom:20px;
+
+}
+
+/* =========================
+PROJECTS
+========================= */
+
+.project-card img{
+
+  width:100%;
+  border-radius:20px;
+  margin-bottom:20px;
+
+}
+
+.project-card a{
+
+  display:inline-block;
+  margin-top:15px;
+
+  color:#38bdf8;
+  text-decoration:none;
+
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-form{
+
+  max-width:700px;
+  margin:auto;
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+
+  opacity:0;
+  transform:translateY(80px);
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+  padding:18px;
+
+  border:none;
+  outline:none;
+
+  border-radius:15px;
+
+  background:rgba(255,255,255,0.05);
+
+  color:white;
+
+}
+
+.contact-form button{
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:30px;
+
+  background:#38bdf8;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+.hero-image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* ROUND IMAGE */
+
+.image-wrapper{
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  overflow:hidden;
+
+  box-shadow:
+    0 0 30px rgba(56,189,248,0.6),
+    0 0 80px rgba(56,189,248,0.3);
+  position:relative;
+}
+
+.image-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  transition:0.5s;
+}
+
+.image-wrapper:hover img{
+  transform:scale(1.05);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .image-wrapper{
+    width:280px;
+    height:280px;
+  }
+
+}
+/* =========================
+   EDUCATION SECTION
+========================== */
+
+.education{
+  background:#0f172a;
+}
+
+.education-container{
+  width:90%;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:35px;
+}
+
+.education-card{
+  background:#1e293b;
+  padding:35px;
+  border-radius:25px;
+  display:flex;
+  gap:25px;
+  align-items:flex-start;
+  border:1px solid rgba(255,255,255,0.05);
+  transition:0.4s;
+
+  transform:translateY(40px);
+}
+
+.education-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.edu-icon{
+  min-width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#38bdf8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:32px;
+  color:#0f172a;
+}
+
+.edu-content h3{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.edu-content h4{
+  color:#38bdf8;
+  margin-bottom:12px;
+  font-size:18px;
+}
+
+.college-name{
+  color:#cbd5e1;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+.edu-content p{
+  color:#94a3b8;
+  line-height:1.8;
+}
+
+.edu-skills{
+  margin-top:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.edu-skills span{
+  padding:10px 18px;
+  background:#0f172a;
+  border:1px solid rgba(56,189,248,0.3);
+  border-radius:30px;
+  color:#38bdf8;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.edu-skills span:hover{
+  background:#38bdf8;
+  color:#0f172a;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .education-card{
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+  }
+
+  .edu-skills{
+    justify-content:center;
+  }
+
+}
+/* =========================
+SOCIAL ICONS
+========================= */
+
+.social-icons{
+
+  display:flex;
+  gap:18px;
+
+  margin-top:35px;
+
+}
+
+.social-icons a{
+
+  width:50px;
+  height:50px;
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-decoration:none;
+
+  background:rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  color:#38bdf8;
+
+  font-size:20px;
+
+  transition:0.4s;
+
+}
+
+.social-icons a:hover{
+
+  background:#38bdf8;
+  color:#050816;
+
+  transform:translateY(-8px);
+
+  box-shadow:
+  0 0 25px rgba(56,189,248,0.6);
+
+}
+
+/* =========================
+SKILLS SECTION
+========================= */
+
+.skills-container{
+
+  max-width:900px;
+  margin:auto;
+
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+
+}
+
+.skill{
+
+  background:rgba(255,255,255,0.05);
+
+  padding:25px;
+
+  border-radius:20px;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  transition:0.3s;
+
+}
+
+.skill:hover{
+
+  transform:translateY(-5px);
+  border-color:#38bdf8;
+
+}
+
+.skill-info{
+
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+
+}
+
+.skill-info h3{
+
+  font-size:18px;
+
+}
+
+.skill-bar{
+
+  width:100%;
+  height:14px;
+
+  background:#0f172a;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+}
+
+.skill-progress{
+
+  height:100%;
+
+  border-radius:30px;
+
+  background:linear-gradient(to right,#38bdf8,#0ea5e9);
+
+  width:0;
+
+  animation:fillBars 2s ease forwards;
+
+}
+
+/* WIDTHS */
+
+.skill-progress.html{
+  width:95%;
+}
+
+.skill-progress.css{
+  width:90%;
+}
+
+.skill-progress.js{
+  width:85%;
+}
+
+.skill-progress.react{
+  width:80%;
+}
+
+.skill-progress.node{
+  width:75%;
+}
+
+.skill-progress.mysql{
+  width:80%;
+}
+
+/* ANIMATION */
+
+@keyframes fillBars{
+
+  from{
+    width:0;
+  }
+
+}
+/* =========================
+LOADER
+========================= */
+
+.loader-wrapper{
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100vh;
+
+  background:#050816;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:999999;
+
+  transition:1s ease;
+
+}
+
+.loader-content{
+
+  text-align:center;
+
+}
+
+.loader-logo{
+
+  font-size:70px;
+  font-weight:700;
+  color:white;
+
+  margin-bottom:30px;
+
+  animation:zoom 1.5s infinite alternate;
+
+}
+
+.loader-logo span{
+
+  color:#38bdf8;
+
+}
+
+.loader{
+
+  width:70px;
+  height:70px;
+
+  border:5px solid rgba(255,255,255,0.1);
+
+  border-top:5px solid #38bdf8;
+
+  border-radius:50%;
+
+  margin:auto;
+
+  animation:spin 1s linear infinite;
+
+}
+
+.loader-wrapper.fade-out{
+
+  opacity:0;
+  visibility:hidden;
+
+}
+
+@keyframes spin{
+
+  100%{
+    transform:rotate(360deg);
+  }
+
+}
+
+@keyframes zoom{
+
+  from{
+    transform:scale(1);
+  }
+
+  to{
+    transform:scale(1.1);
+  }
+
+}
+/* =========================
+THEME TOGGLE
+========================= */
+
+.theme-toggle{
+
+  width:50px;
+  height:50px;
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  color:#38bdf8;
+
+  cursor:pointer;
+
+  transition:0.4s;
+
+  font-size:20px;
+
+}
+
+.theme-toggle:hover{
+
+  transform:rotate(180deg);
+
+  background:#38bdf8;
+  color:#050816;
+
+  box-shadow:
+  0 0 20px rgba(56,189,248,0.6);
+
+}
+
+/* =========================
+LIGHT MODE
+========================= */
+
+body.light-mode{
+
+  background:#f8fafc;
+  color:#0f172a;
+
+}
+
+/* NAVBAR */
+
+body.light-mode header{
+
+  background:rgba(255,255,255,0.7);
+
+}
+
+/* LINKS */
+
+body.light-mode .nav-links a{
+
+  color:#0f172a;
+
+}
+
+/* CARDS */
+
+body.light-mode .about-card,
+body.light-mode .service-card,
+body.light-mode .project-card,
+body.light-mode .education-card,
+body.light-mode .skill{
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,0.08);
+
+}
+
+/* TEXT */
+
+body.light-mode p{
+
+  color:#334155;
+
+}
+
+/* INPUTS */
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea{
+
+  background:white;
+  color:black;
+
+  border:1px solid rgba(0,0,0,0.1);
+
+}
+
+/* FOOTER */
+
+body.light-mode footer{
+
+  border-top:1px solid rgba(0,0,0,0.1);
+
+}
+/* =========================
+FOOTER
+========================= */
+
+footer{
+
+  text-align:center;
+  padding:30px;
+
+  border-top:1px solid rgba(255,255,255,0.1);
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Afzal<span>.</span></div>
+  <!-- LOADER -->
 
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<div class="loader-wrapper">
 
-      <a href="#" class="btn">Hire Me</a>
-    </nav>
-  </header>
+  <div class="loader-content">
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
+    <h1 class="loader-logo">
+      Afzal<span>.</span>
+    </h1>
 
-    <div class="hero-text">
-      <h3>Hello, I'm</h3>
-      <h1>Mohammed Afzal</h1>
+    <div class="loader"></div>
 
-      <h2>Frontend Developer & UI Designer</h2>
-
-      <p>
-        I create modern, responsive and attractive websites
-        with professional designs and smooth user experience.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#projects" class="primary-btn">View Projects</a>
-        <a href="Resume.pdf" class="secondary-btn">Download Resume</a>
-      </div>
-
-      <div class="social-icons">
-<a href="https://github.com/Afzal2004" target="_blank">
-    <i class="fab fa-github"></i>
-</a>     <a href="https://linkedin.com/in/Mohammed Afzal" target="_blank">
-    <i class="fab fa-linkedin-in"></i>
-</a>
-     <a href="https://instagram.com/_mohammedafzal_" target="_blank">
-    <i class="fab fa-instagram"></i>
-</a>
-      </div>
-    </div>
-
-    <div class="hero-image">
-
-    <div class="profile-glow"></div>
-
-    <img src="afzal.jpeg" alt="Profile Image">
+  </div>
 
 </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section class="about section" id="about">
+<div class="scroll-progress"></div>
 
-    <div class="section-title">
-      <h2>About Me</h2>
-      <span></span>
-    </div>
+<div class="mouse-glow"></div>
 
-    <div class="about-content">
+<div id="particles-js"></div>
 
-      <div class="about-card">
-        <i class="fa-solid fa-code"></i>
-        <h3>Web Development</h3>
-        <p>
-          Building modern and responsive websites with
-          clean code and professional UI.
-        </p>
-      </div>
+<div class="custom-cursor"></div>
 
-      <div class="about-card">
-        <i class="fa-solid fa-palette"></i>
-        <h3>UI/UX Design</h3>
-        <p>
-          Attractive user interfaces with smooth design
-          experience and animations.
-        </p>
-      </div>
+<!-- NAVBAR -->
 
-      <div class="about-card">
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>Problem Solving</h3>
-        <p>
-          Creating efficient and scalable solutions for
-          real-world projects.
-        </p>
-      </div>
+<header>
 
-    </div>
+<nav class="navbar">
 
-  </section>
+<div class="logo">
+Afzal<span>.</span>
+</div>
 
-  <!-- SKILLS -->
-  <section class="skills section" id="skills">
+<ul class="nav-links">
 
-    <div class="section-title">
-      <h2>My Skills</h2>
-      <span></span>
-    </div>
+<li><a href="#home">Home</a></li>
 
-    <div class="skills-container">
+<li><a href="#about">About</a></li>
 
-      <div class="skill">
-        <p>HTML</p>
-        <div class="progress-bar">
-          <div class="progress html"></div>
-        </div>
-      </div>
+<li><a href="#services">Services</a></li>
 
-      <div class="skill">
-        <p>CSS</p>
-        <div class="progress-bar">
-          <div class="progress css"></div>
-        </div>
-      </div>
+<li><a href="#projects">Projects</a></li>
 
-      <div class="skill">
-        <p>JavaScript</p>
-        <div class="progress-bar">
-          <div class="progress js"></div>
-        </div>
-      </div>
+<li><a href="#contact">Contact</a></li>
 
-      <div class="skill">
-        <p>React</p>
-        <div class="progress-bar">
-          <div class="progress react"></div>
-        </div>
-      </div>
+</ul>
+<!-- THEME TOGGLE -->
 
-        <div class="skill">
-        <p>Python</p>
-        <div class="progress-bar">
-          <div class="progress Python"></div>
-        </div>
-      </div>
-          <div class="skill">
-        <p>Java</p>
-        <div class="progress-bar">
-          <div class="progress Java"></div>
-        </div>
-      </div>
+<div class="theme-toggle">
 
-    </div>
+  <i class="fa-solid fa-moon"></i>
 
-  </section>
+</div>
+<a href="#contact" class="btn">
+Hire Me
+</a>
 
-  <!-- PROJECTS -->
-  <section class="projects section" id="projects">
+</nav>
 
-    <div class="section-title">
-      <h2>Projects</h2>
-      <span></span>
-    </div>
+</header>
 
-    <div class="project-container">
+<!-- HERO -->
 
-      <div class="project-card">
-        <img src="ecom.png" alt="">
-        <div class="project-content">
-          <h3>E-Commerce Website</h3>
-          <p>Modern online shopping website with responsive UI.</p>
-          <a href="#">View Project</a>
-        </div>
-      </div>
+<section class="hero" id="home">
 
-      <div class="project-card">
-        <img src="portfolio.png" alt="">
-        <div class="project-content">
-          <h3>Portfolio Website</h3>
-          <p>Professional personal portfolio with animations.</p>
-          <a href="#">View Project</a>
-        </div>
-      </div>
+<div class="hero-text">
 
-      <div class="project-card">
-        <img src="event.png" alt="">
-        <div class="project-content">
-    <h3>Event Master Website</h3>
+<h3>Hello, I'm</h3>
+
+<h1>Mohammed Afzal</h1>
+
+<h2>
+I am a <span class="typing"></span>
+</h2>
 
 <p>
-   A college event management website for managing campus events easily. 
+
+I create modern and professional websites with beautiful UI/UX,
+smooth animations and responsive design.
+
 </p>
 
-<a href="#">View Project</a>
+<div class="hero-buttons">
+
+<a href="#projects" class="primary-btn">
+View Projects
+</a>
+
+<a href="Resume.pdf" class="secondary-btn" download>
+Download Resume
+</a>
+
+</div><br/>
+<div class="social-icons">
+
+<a href="https://github.com/Afzal2004" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+<a href="https://linkedin.com/in/mohammed-afzal" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
+
+<a href="https://instagram.com/_mohammedafzal_" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+</div>
+
+</div>
+<!-- =========================
+ADD THIS INSIDE HERO SECTION
+UNDER HERO BUTTONS
+========================= -->
+
+
+
+<div class="hero-image">
+
+  <div class="image-wrapper">
+    <img src="images/afzal.jpeg" alt="Afzal">
+  </div>
+
+</div>
+
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="section-title">
+
+<h2>About Me</h2>
+
+<span></span>
+
+</div>
+
+<div class="about-content">
+
+<div class="about-card">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Web Development</h3>
+
+<p>
+
+Modern responsive website development with clean code.
+
+</p>
+
+</div>
+
+<div class="about-card">
+
+<i class="fa-solid fa-palette"></i>
+
+<h3>UI/UX Design</h3>
+
+<p>
+
+Beautiful and modern user interface design.
+
+</p>
+
+</div>
+
+<div class="about-card">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+<h3>Full Stack</h3>
+
+<p>
+
+Building frontend and backend applications.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+<div class="section-title">
+
+<h2>Services</h2>
+
+<span></span>
+
+</div>
+
+<div class="services-container">
+
+<div class="service-card">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Frontend Development</h3>
+
+<p>
+
+Professional responsive frontend websites.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-brands fa-react"></i>
+
+<h3>React Development</h3>
+
+<p>
+
+Modern React JS applications.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-solid fa-server"></i>
+
+<h3>Backend Development</h3>
+
+<p>
+
+Node JS and database integration.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================
+ADD THIS AFTER SERVICES SECTION
+========================= -->
+
+<!-- SKILLS SECTION -->
+
+<section class="section" id="skills">
+
+<div class="section-title">
+
+<h2>My Skills</h2>
+
+<span></span>
+
+</div>
+
+<div class="skills-container">
+
+  <!-- HTML -->
+
+  <div class="skill">
+
+    <div class="skill-info">
+      <h3>HTML</h3>
+      <h3>95%</h3>
+    </div>
+
+    <div class="skill-bar">
+      <div class="skill-progress html"></div>
+    </div>
+
+  </div>
+
+  <!-- CSS -->
+
+  <div class="skill">
+
+    <div class="skill-info">
+      <h3>CSS</h3>
+      <h3>90%</h3>
+    </div>
+
+    <div class="skill-bar">
+      <div class="skill-progress css"></div>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+
+  <div class="skill">
+
+    <div class="skill-info">
+      <h3>JavaScript</h3>
+      <h3>85%</h3>
+    </div>
+
+    <div class="skill-bar">
+      <div class="skill-progress js"></div>
+    </div>
+
+  </div>
+
+  <!-- REACT -->
+
+  <div class="skill">
+
+    <div class="skill-info">
+      <h3>React JS</h3>
+      <h3>80%</h3>
+    </div>
+
+    <div class="skill-bar">
+      <div class="skill-progress react"></div>
+    </div>
+
+  </div>
+
+  <!-- NODE -->
+
+  <div class="skill">
+
+    <div class="skill-info">
+      <h3>Node JS</h3>
+      <h3>75%</h3>
+    </div>
+
+    <div class="skill-bar">
+      <div class="skill-progress node"></div>
+    </div>
+
+  </div>
+
+  <!-- MYSQL -->
+
+  <div class="skill">
+
+    <div class="skill-info">
+      <h3>MySQL</h3>
+      <h3>80%</h3>
+    </div>
+
+    <div class="skill-bar">
+      <div class="skill-progress mysql"></div>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+<!-- EDUCATION SECTION -->
+
+<section class="education section" id="education">
+
+  <div class="section-title">
+
+    <h2>Education</h2>
+
+    <span></span>
+
+  </div>
+
+  <div class="education-container">
+
+    <!-- EDUCATION CARD 1 -->
+
+    <div class="education-card">
+
+      <div class="edu-icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+
+      <div class="edu-content">
+
+        <h3>
+          Bachelor of Technology (B.Tech)
+        </h3>
+
+        <h4>
+          2022 - 2026
+        </h4>
+
+        <p class="college-name">
+          Srinivas University Institute Of Engineering & Technology , Mukka (SUIET)
+        </p>
+
+        <p>
+          Completed B.Tech while learning Full Stack Development,
+          Frontend Technologies, Backend Development, Database Management
+          and Software Engineering concepts.
+        </p>
+
+        <div class="edu-skills">
+
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>React JS</span>
+          <span>Node JS</span>
+          <span>MongoDB</span>
+
         </div>
-      </div>               
+
+      </div>
 
     </div>
 
-  </section>
+    <!-- EDUCATION CARD 2 -->
 
-  <!-- CONTACT -->
-  <section class="contact section" id="contact">
+    <div class="education-card">
 
-    <div class="section-title">
-      <h2>Contact Me</h2>
-      <span></span>
+      <div class="edu-icon">
+        <i class="fa-solid fa-school"></i>
+      </div>
+
+      <div class="edu-content">
+
+        <h3>
+          Pre-University Education (PUC)
+        </h3>
+
+        <h4>
+          2020 - 2022
+        </h4>
+
+        <p class="college-name">
+          Sree Narayana Guru PU College, Mulki
+        </p>
+
+        <p>
+          Completed PCMB stream with strong focus on
+          Physics, Chemistry, Mathematics and Biology
+          while improving analytical and problem-solving skills.
+        </p>
+
+        <div class="edu-skills">
+
+          <span>Physics</span>
+          <span>Chemistry</span>
+          <span>Mathematics</span>
+          <span>Biology</span>
+          <span>Problem Solving</span>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <form class="contact-form" 
-      action="https://formsubmit.co/mohammedafzal@1423@gmail.com" 
-      method="POST">
+  </div>
+
+</section>
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+
+<div class="section-title">
+
+<h2>Projects</h2>
+
+<span></span>
+
+</div>
+
+<div class="project-container">
+
+<div class="project-card">
+
+<img src="images/ecom.png">
+
+<h3>E-Commerce Website</h3>
+
+<p>
+
+Modern online shopping website.
+
+</p>
+
+<a href="ecom.html">
+View Project
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/event.png">
+
+<h3>Event Website</h3>
+
+<p>
+
+College event management platform.
+
+</p>
+
+<a href="event.html">
+View Project
+</a>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/portfolio.png">
+
+<h3>Portfolio Website</h3>
+
+<p>
+
+Professional animated portfolio.
+
+</p>
+
+<a href="index.html">
+View Project
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<div class="section-title">
+
+<h2>Contact Me</h2>
+
+<span></span>
+
+</div>
+
+<form class="contact-form"
+action="https://formsubmit.co/mohammedafzal1423@gmail.com"
+method="POST">
 
   <input type="hidden" name="_captcha" value="false">
 
-  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="hidden" name="_subject"
+  value="New Portfolio Contact Message">
 
-  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="hidden" name="_autoresponse"
+  value="Thank you for contacting me. I will respond soon.">
 
-  <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+  <input type="text" name="_honey"
+  style="display:none">
 
-  <button type="submit">Send Message</button>
+  <input type="text"
+  name="name"
+  placeholder="Your Name"
+  required>
+
+  <input type="email"
+  name="email"
+  placeholder="Your Email"
+  required>
+
+  <textarea
+  name="message"
+  rows="6"
+  placeholder="Your Message"
+  required></textarea>
+
+  <button type="submit">
+    Send Message
+  </button>
 
 </form>
 
-  </section>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Mohammed Afzal | All Rights Reserved</p>
-  </footer>
+<footer>
+
+<p>
+
+© 2026 Mohammed Afzal | All Rights Reserved
+
+</p>
+
+</footer>
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress"></div>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow"></div>
+
+<!-- PARTICLES -->
+<div id="particles-js"></div>
+<script>
+
+/* CURSOR */
+
+const cursor = document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+gsap.to(cursor,{
+
+x:e.clientX,
+y:e.clientY,
+duration:0.15
+
+});
+
+});
+
+/* GLOW */
+
+const glow = document.querySelector(".mouse-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+gsap.to(glow,{
+
+x:e.clientX-200,
+y:e.clientY-200,
+duration:0.5
+
+});
+
+});
+
+/* TYPED */
+
+new Typed(".typing",{
+
+strings:[
+"Full Stack Developer",
+"React Developer",
+"UI/UX Designer"
+],
+
+typeSpeed:80,
+backSpeed:50,
+loop:true
+
+});
+
+/* ACTIVE NAV */
+
+const sections=document.querySelectorAll("section");
+
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const sectionTop=section.offsetTop-200;
+
+if(pageYOffset>=sectionTop){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+/* SCROLL BAR */
+
+window.addEventListener("scroll",()=>{
+
+const scrollTop=document.documentElement.scrollTop;
+
+const scrollHeight=
+document.documentElement.scrollHeight-
+document.documentElement.clientHeight;
+
+const scrollPercent=
+(scrollTop/scrollHeight)*100;
+
+document.querySelector(".scroll-progress").style.width=
+scrollPercent+"%";
+
+});
+
+/* PARTICLES */
+
+particlesJS("particles-js",{
+
+particles:{
+
+number:{
+value:60
+},
+
+color:{
+value:"#38bdf8"
+},
+
+shape:{
+type:"circle"
+},
+
+opacity:{
+value:0.4
+},
+
+size:{
+value:3,
+random:true
+},
+
+line_linked:{
+enable:true,
+distance:140,
+color:"#38bdf8",
+opacity:0.2
+},
+
+move:{
+enable:true,
+speed:2
+}
+
+}
+
+});
+
+/* GSAP */
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* HERO */
+
+gsap.from(".hero-text",{
+
+x:-100,
+opacity:0,
+duration:1.5
+
+});
+
+gsap.from(".hero-image",{
+
+x:100,
+opacity:0,
+duration:1.5
+
+});
+
+/* CARDS */
+
+gsap.utils.toArray(
+
+".about-card,.service-card,.project-card"
+
+).forEach((card,i)=>{
+
+gsap.to(card,{
+
+opacity:1,
+y:0,
+
+scrollTrigger:{
+
+trigger:card,
+start:"top 85%"
+
+},
+
+duration:1,
+delay:i*0.1
+
+});
+
+});
+
+/* CONTACT */
+
+gsap.to(".contact-form",{
+
+opacity:1,
+y:0,
+
+scrollTrigger:{
+
+trigger:".contact-form",
+start:"top 85%"
+
+},
+
+duration:1.2
+
+});
+/* LOADER */
+
+window.addEventListener("load",()=>{
+
+  const loader=document.querySelector(".loader-wrapper");
+
+  setTimeout(()=>{
+
+    loader.classList.add("fade-out");
+
+  },750);
+
+});
+/* =========================
+DARK LIGHT MODE
+========================= */
+
+const themeToggle =
+document.querySelector(".theme-toggle");
+
+const themeIcon =
+themeToggle.querySelector("i");
+
+themeToggle.addEventListener("click",()=>{
+
+  document.body.classList.toggle("light-mode");
+
+  if(document.body.classList.contains("light-mode")){
+
+    themeIcon.classList.remove("fa-moon");
+
+    themeIcon.classList.add("fa-sun");
+
+  }
+
+  else{
+
+    themeIcon.classList.remove("fa-sun");
+
+    themeIcon.classList.add("fa-moon");
+
+  }
+
+});
+</script>
 
 </body>
+
 </html>
