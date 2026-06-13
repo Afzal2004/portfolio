@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Endless Runner</title>
+    <link rel="stylesheet" href="stylerunner.css">
+</head>
+<body>
+
+<div id="menu">
+    <div class="card">
+
+        <h1>🚗 Car Endless Runner</h1>
+
+        <p>Select Your Car</p>
+
+        <div class="car-selection">
+
+            <div class="car-option selected" data-color="#2196f3">
+                🚙 Blue Car
+            </div>
+
+            <div class="car-option" data-color="#e53935">
+                🚗 Red Car
+            </div>
+
+            <div class="car-option" data-color="#4caf50">
+                🚕 Green Car
+            </div>
+
+        </div>
+
+        <button id="startBtn">
+            Start Game
+        </button>
+
+    </div>
+</div>
+
+<div class="hud">
+    <div id="score">Score: 0</div>
+    <div id="highScore">High Score: 0</div>
+    <div id="speed">Speed: 0</div>
+    <button id="pauseBtn">Pause</button>
+</div>
+
+<div id="gameOverScreen" class="hidden">
+    <div class="card">
+        <h2>Game Over</h2>
+        <p id="finalScore">Score: 0</p>
+        <button onclick="location.reload()">Play Again</button>
+    </div>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+<div class="controls">
+    <button id="leftBtn">⬅</button>
+    <button id="rightBtn">➡</button>
+</div>
+<script src="scriptrunner.js"></script>
+
+</body>
+</html>

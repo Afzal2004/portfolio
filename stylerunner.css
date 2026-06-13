@@ -1,0 +1,224 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:#111;
+}
+
+canvas{
+    display:block;
+    width:100vw;
+    height:100vh;
+}
+
+/* HUD */
+
+.hud{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:10;
+    color:white;
+    display:flex;
+    gap:15px;
+    align-items:center;
+    font-weight:bold;
+    flex-wrap:wrap;
+}
+
+#pauseBtn{
+    padding:8px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#ff9800;
+    color:white;
+    font-weight:bold;
+}
+
+/* MENU + GAME OVER */
+
+#menu,
+#gameOverScreen{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.8);
+    z-index:20;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:320px;
+    max-width:90%;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.card h1,
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    margin-bottom:20px;
+}
+
+.card button{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#2196f3;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.card button:hover{
+    transform:translateY(-2px);
+}
+
+/* HIDE */
+
+.hidden{
+    display:none !important;
+}
+
+/* CAR SELECTION */
+
+.car-selection{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:20px 0;
+}
+
+.car-option{
+    padding:12px;
+    border:2px solid #ccc;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.car-option:hover{
+    background:#f5f5f5;
+}
+
+.car-option.selected{
+    border-color:#2196f3;
+    background:#e3f2fd;
+}
+
+/* MOBILE CONTROLS */
+
+.controls{
+    position:fixed;
+    bottom:20px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:0 20px;
+    z-index:15;
+}
+
+.controls button{
+    width:70px;
+    height:70px;
+    border:none;
+    border-radius:50%;
+    background:#2196f3;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+    transition:.2s;
+}
+
+.controls button:active{
+    transform:scale(.95);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+    .hud{
+        gap:10px;
+        font-size:14px;
+        top:10px;
+        left:10px;
+    }
+
+    .card{
+        width:90%;
+        padding:20px;
+    }
+
+    .card h1{
+        font-size:24px;
+    }
+
+    .card h2{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:14px;
+    }
+
+    .card button{
+        width:100%;
+    }
+
+    .car-option{
+        padding:10px;
+        font-size:14px;
+    }
+
+    .controls button{
+        width:65px;
+        height:65px;
+        font-size:28px;
+    }
+}
+
+@media (max-width:480px){
+
+    .hud{
+        font-size:12px;
+    }
+
+    .controls{
+        padding:0 15px;
+        bottom:15px;
+    }
+
+    .controls button{
+        width:60px;
+        height:60px;
+        font-size:24px;
+    }
+
+    .card h1{
+        font-size:22px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+}
