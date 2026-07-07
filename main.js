@@ -8,7 +8,7 @@ if (document.querySelector(".typing")) {
     new Typed(".typing", {
         strings: [
             "Full Stack Developer",
-            "Software Engineer",
+            "Software Developer",
             "React Developer",
             "Python & Flask Developer",
         ],
